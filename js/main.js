@@ -1,17 +1,38 @@
-// 1) Se precisa un algoritmo que reciba por prompt el mail del usuario y que valide si este mail contiene un "@". Para ello se precisará un bucle que pueda recorrer cada caracter de este valor y que en base a una condición, refleje como alerta si "Es un mail válido" o "Es un mail inválido", en el caso de que no contenga "@".
-
-const email = prompt("Ingrese su correo electrónico");
-let esValido = false; 
-
-for (let i = 0; i < email.length; i++) {
-    if (email[i] === "@") {
-        esValido = true; 
-        break; 
+function realizarOperacion() {
+    const numero1 = parseFloat(prompt("Ingrese el primer número"));
+    const numero2 = parseFloat(prompt("Ingrese el segundo número"));
+    
+    if (isNaN(numero1) || isNaN(numero2)) {
+        alert("Por favor, ingrese números válidos.");
+        return;
     }
+
+    const operacion = prompt("Seleccione una operación: suma, resta, multiplicación o división").toLowerCase();
+    
+    let resultado;
+
+    switch (operacion) {
+        case "suma":
+            resultado = numero1 + numero2;
+            break;
+        case "resta":
+            resultado = numero1 - numero2;
+            break;
+        case "multiplicacion":
+            resultado = numero1 * numero2;
+            break;
+        case "division":
+            if (numero2 !== 0) {
+                resultado = numero1 / numero2;
+            } else {
+                resultado = "Error: División por cero";
+            }
+            break;
+        default:
+            resultado = "Operación no válida";
+    }
+
+    alert("El resultado es: " + resultado);
 }
 
-if (esValido) {
-    alert("Es un correo válido");
-} else {
-    alert("Es un correo inválido");
-}
+realizarOperacion();
