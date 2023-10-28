@@ -117,7 +117,7 @@ function filtrarResultadosPorValor() {
 }
 
 // Asignar eventos a los botones
-realizarOperacionButton.addEventListener("click", realizarOperacion);
+$("#realizarOperacion").click(realizarOperacion);
 mostrarResultadosAnterioresButton.addEventListener("click", mostrarResultadosAnteriores);
 buscarResultadoButton.addEventListener("click", buscarResultado);
 filtrarResultadosPorValorButton.addEventListener("click", filtrarResultadosPorValor);
@@ -149,4 +149,17 @@ function concatenar(texto1, texto2) {
 
 function calcularPorcentaje(numero, porcentaje) {
     return (numero * porcentaje) / 100;
+}
+
+// Ejemplo de uso de Fetch para obtener datos de una API
+function obtenerDatosDeAPI() {
+    fetch('https://api.example.com/data')
+        .then(response => response.json())
+        .then(data => {
+            // Realiza acciones con los datos obtenidos de la API
+            console.log(data);
+        })
+        .catch(error => {
+            console.error('Error al obtener datos de la API:', error);
+        });
 }
